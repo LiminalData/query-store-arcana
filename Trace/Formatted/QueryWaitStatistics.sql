@@ -1,4 +1,13 @@
-exec sp_executesql N'SELECT TOP (@results_row_count)
+declare
+    @interval_start_time datetimeoffset(7),
+    @interval_end_time datetimeoffset(7),
+    @results_row_count int;
+select
+    @interval_start_time='2025-03-28 13:39:43.7501448 -04:00',
+    @interval_end_time='2025-03-28 14:39:43.7501448 -04:00',
+    @results_row_count=10;
+
+SELECT TOP (@results_row_count)
     ws.wait_category wait_category,
     ws.wait_category_desc wait_category_desc,
     ROUND(CONVERT(float, SUM(ws.total_query_wait_time_ms)/SUM(ws.total_query_wait_time_ms/ws.avg_query_wait_time_ms))*1,2) avg_query_wait_time,
@@ -11,4 +20,4 @@ FROM sys.query_store_wait_stats ws
     JOIN sys.query_store_runtime_stats_interval itvl ON itvl.runtime_stats_interval_id = ws.runtime_stats_interval_id
 WHERE NOT (itvl.start_time > @interval_end_time OR itvl.end_time < @interval_start_time)
 GROUP BY ws.wait_category, wait_category_desc
-ORDER BY total_query_wait_time DESC',N'@interval_start_time datetimeoffset(7),@interval_end_time datetimeoffset(7),@results_row_count int',@interval_start_time='2025-03-28 13:39:43.7501448 -04:00',@interval_end_time='2025-03-28 14:39:43.7501448 -04:00',@results_row_count=10
+ORDER BY total_query_wait_time DESC;

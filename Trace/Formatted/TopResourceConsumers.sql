@@ -1,4 +1,13 @@
-exec sp_executesql N'SELECT TOP (@results_row_count)
+declare
+    @results_row_count int,
+    @interval_start_time datetimeoffset(7),
+    @interval_end_time datetimeoffset(7);
+select
+    @results_row_count=25,
+    @interval_start_time='2025-03-28 13:36:58.5891529 -04:00',
+    @interval_end_time='2025-03-28 14:36:58.5891529 -04:00';
+
+SELECT TOP (@results_row_count)
     p.query_id query_id,
     q.object_id object_id,
     ISNULL(OBJECT_NAME(q.object_id),'''') object_name,
@@ -13,4 +22,4 @@ FROM sys.query_store_runtime_stats rs
 WHERE NOT (rs.first_execution_time > @interval_end_time OR rs.last_execution_time < @interval_start_time)
 GROUP BY p.query_id, qt.query_sql_text, q.object_id
 HAVING COUNT(distinct p.plan_id) >= 1
-ORDER BY total_duration DESC',N'@results_row_count int,@interval_start_time datetimeoffset(7),@interval_end_time datetimeoffset(7)',@results_row_count=25,@interval_start_time='2025-03-28 13:36:58.5891529 -04:00',@interval_end_time='2025-03-28 14:36:58.5891529 -04:00'
+ORDER BY total_duration DESC;

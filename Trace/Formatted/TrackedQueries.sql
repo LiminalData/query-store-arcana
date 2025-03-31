@@ -1,4 +1,15 @@
-exec sp_executesql N'WITH 
+
+declare 
+    @query_id bigint,
+    @interval_start_time datetimeoffset(7),
+    @interval_end_time datetimeoffset(7);
+
+select
+    @query_id=1,
+    @interval_start_time='2025-03-27 14:41:27.8215450 -04:00',
+    @interval_end_time='2025-03-28 14:41:27.8215450 -04:00';
+
+WITH 
     bucketizer as 
     (
         SELECT
@@ -42,4 +53,4 @@ SELECT b.plan_id as plan_id,
     variation_duration,
     total_duration
 FROM bucketizer b
-JOIN is_forced f ON f.plan_id = b.plan_id',N'@query_id bigint,@interval_start_time datetimeoffset(7),@interval_end_time datetimeoffset(7)',@query_id=1,@interval_start_time='2025-03-27 14:41:27.8215450 -04:00',@interval_end_time='2025-03-28 14:41:27.8215450 -04:00'
+JOIN is_forced f ON f.plan_id = b.plan_id;

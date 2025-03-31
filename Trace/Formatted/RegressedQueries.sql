@@ -1,4 +1,19 @@
-exec sp_executesql N'WITH 
+declare
+    @results_row_count int,
+    @recent_start_time datetimeoffset(7),
+    @recent_end_time datetimeoffset(7),
+    @history_start_time datetimeoffset(7),
+    @history_end_time datetimeoffset(7),
+    @min_exec_count bigint;
+select
+    @results_row_count=25,
+    @recent_start_time='2025-03-28 12:41:24.9426168 -04:00',
+    @recent_end_time='2025-03-28 13:41:24.9426168 -04:00',
+    @history_start_time='2025-03-21 13:41:24.9426168 -04:00',
+    @history_end_time='2025-03-28 13:41:24.9426168 -04:00',
+    @min_exec_count=1;
+
+WITH 
 hist AS
 (
 SELECT
@@ -63,4 +78,4 @@ HAVING COUNT(distinct p.plan_id) >= 1
 ) AS queries ON queries.query_id = results.query_id
 WHERE additional_duration_workload > 0
 ORDER BY additional_duration_workload DESC
-OPTION (MERGE JOIN)',N'@results_row_count int,@recent_start_time datetimeoffset(7),@recent_end_time datetimeoffset(7),@history_start_time datetimeoffset(7),@history_end_time datetimeoffset(7),@min_exec_count bigint',@results_row_count=25,@recent_start_time='2025-03-28 12:41:24.9426168 -04:00',@recent_end_time='2025-03-28 13:41:24.9426168 -04:00',@history_start_time='2025-03-21 13:41:24.9426168 -04:00',@history_end_time='2025-03-28 13:41:24.9426168 -04:00',@min_exec_count=1
+OPTION (MERGE JOIN);

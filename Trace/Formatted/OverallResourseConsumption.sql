@@ -1,4 +1,11 @@
-exec sp_executesql N'WITH DateGenerator AS
+declare
+    @interval_start_time datetimeoffset(7),
+    @interval_end_time datetimeoffset(7);
+select
+    @interval_start_time='2025-02-28 13:35:58.3415888 -05:00',
+    @interval_end_time='2025-03-28 14:35:58.3415888 -04:00';
+
+WITH DateGenerator AS
 (
 SELECT CAST(@interval_start_time AS DATETIME) DatePlaceHolder
 UNION ALL
@@ -56,4 +63,4 @@ SELECT *, ROW_NUMBER() OVER (PARTITION BY bucket_start ORDER BY bucket_start, to
 FROM UnionAll , WaitStats
 ) as UnionAllResults
 WHERE UnionAllResults.RowNumber = 1
-OPTION (MAXRECURSION 0)',N'@interval_start_time datetimeoffset(7),@interval_end_time datetimeoffset(7)',@interval_start_time='2025-02-28 13:35:58.3415888 -05:00',@interval_end_time='2025-03-28 14:35:58.3415888 -04:00'
+OPTION (MAXRECURSION 0);
