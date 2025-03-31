@@ -1,25 +1,41 @@
+/*
+Top Resource Consumers UI Dashboard Query
+*/
 declare
-    @results_row_count int,
+    @results_row_count   int,
     @interval_start_time datetimeoffset(7),
-    @interval_end_time datetimeoffset(7);
-select
-    @results_row_count=25,
-    @interval_start_time='2025-03-28 13:36:58.5891529 -04:00',
-    @interval_end_time='2025-03-28 14:36:58.5891529 -04:00';
+    @interval_end_time   datetimeoffset(7);
 
-SELECT TOP (@results_row_count)
-    p.query_id query_id,
-    q.object_id object_id,
-    ISNULL(OBJECT_NAME(q.object_id),'''') object_name,
-    qt.query_sql_text query_sql_text,
-    ROUND(CONVERT(float, SUM(rs.avg_duration*rs.count_executions))*0.001,2) total_duration,
-    SUM(rs.count_executions) count_executions,
-    COUNT(distinct p.plan_id) num_plans
-FROM sys.query_store_runtime_stats rs
-    JOIN sys.query_store_plan p ON p.plan_id = rs.plan_id
-    JOIN sys.query_store_query q ON q.query_id = p.query_id
-    JOIN sys.query_store_query_text qt ON q.query_text_id = qt.query_text_id
-WHERE NOT (rs.first_execution_time > @interval_end_time OR rs.last_execution_time < @interval_start_time)
-GROUP BY p.query_id, qt.query_sql_text, q.object_id
-HAVING COUNT(distinct p.plan_id) >= 1
-ORDER BY total_duration DESC;
+select
+    @results_row_count   = 25,
+    @interval_start_time = '2025-03-28 13:00:00.0000000 -04:00',
+    @interval_end_time   = '2025-03-28 14:00:00.0000000 -04:00';
+
+select top (@results_row_count)
+    p.query_id as query_id,
+    q.[object_id] as [object_id],
+    isnull(object_name(q.[object_id]), '') as [object_name],
+    qt.query_sql_text,
+    round(
+        convert(
+            float, 
+            sum(rs.avg_duration * rs.count_executions)
+        ) * 0.001, 
+        2
+    ) as total_duration,
+    sum(rs.count_executions) as count_executions,
+    count(distinct p.plan_id) as num_plans
+from sys.query_store_runtime_stats as rs
+join sys.query_store_plan as p on p.plan_id = rs.plan_id
+join sys.query_store_query as q on q.query_id = p.query_id
+join sys.query_store_query_text as qt on q.query_text_id = qt.query_text_id
+where not (
+        rs.first_execution_time > @interval_end_time
+        or rs.last_execution_time < @interval_start_time
+    )
+group by 
+    p.query_id,
+    qt.query_sql_text,
+    q.[object_id]
+having count(distinct p.plan_id) >= 1
+order by total_duration desc;
