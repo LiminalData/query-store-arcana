@@ -15,7 +15,6 @@ select top (@results_row_count)
     p.query_id as query_id,
     q.[object_id] as [object_id],
     isnull(object_name(q.[object_id]), '') as [object_name],
-    qt.query_sql_text,
     round(
         convert(
             float, 
@@ -24,7 +23,8 @@ select top (@results_row_count)
         2
     ) as total_duration,
     sum(rs.count_executions) as count_executions,
-    count(distinct p.plan_id) as num_plans
+    count(distinct p.plan_id) as num_plans,
+    qt.query_sql_text
 from sys.query_store_runtime_stats as rs
 join sys.query_store_plan as p on p.plan_id = rs.plan_id
 join sys.query_store_query as q on q.query_id = p.query_id
