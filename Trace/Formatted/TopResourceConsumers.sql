@@ -8,8 +8,8 @@ declare
 
 select
     @results_row_count   = 25,
-    @interval_start_time = '2025-03-28 13:00:00.0000000 -04:00',
-    @interval_end_time   = '2025-03-28 14:00:00.0000000 -04:00';
+    @interval_start_time = dateadd(hour,-1,getdate()),
+    @interval_end_time   = getdate();
 
 select top (@results_row_count)
     p.query_id as query_id,
