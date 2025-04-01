@@ -55,6 +55,8 @@ select top (@results_row_count)
             0
         ) 
     ) as total_duration_hhmmss,
+    round(avg(rs.avg_duration * 0.001),2) as avg_duration_ms,
+    avg(rs.count_executions) as avg_executions_per_hour,
     qt.query_sql_text
 from sys.query_store_runtime_stats as rs
 join sys.query_store_plan as p on p.plan_id = rs.plan_id
