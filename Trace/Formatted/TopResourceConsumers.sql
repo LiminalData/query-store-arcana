@@ -13,6 +13,7 @@ select
 
 select top (@results_row_count)
     p.query_id as query_id,
+    q.query_text_id,
     q.[object_id] as [object_id],
     iif(
         q.[object_id] = 0,
@@ -68,6 +69,7 @@ where not (
     )
 group by 
     p.query_id,
+    q.query_text_id,
     qt.query_sql_text,
     q.[object_id]
 having count(distinct p.plan_id) >= 1
