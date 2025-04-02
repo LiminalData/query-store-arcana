@@ -1,0 +1,82 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="73BIOW9CV_iAvHFeowgJ">
+    <mxGraphModel dx="1876" dy="861" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="plan" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-1">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="320" y="280" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-2" target="4EDi7bQ3v0hCy3BZd2vM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERzeroToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-2" target="4EDi7bQ3v0hCy3BZd2vM-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="query" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-2">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="110" y="280" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-4" target="4EDi7bQ3v0hCy3BZd2vM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="query_text" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-4">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="-100" y="280" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERone;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-6" target="4EDi7bQ3v0hCy3BZd2vM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-6" target="4EDi7bQ3v0hCy3BZd2vM-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="runtime_stats" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-6">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+            <mxGeometry x="530" y="280" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="runtime_stats_interval" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-8">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=default;" vertex="1" parent="1">
+            <mxGeometry x="740" y="280" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERone;endFill=0;startArrow=ERzeroToOne;startFill=0;opacity=50;textOpacity=50;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-10" target="4EDi7bQ3v0hCy3BZd2vM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="query_hints" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-query-hints-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-10">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;opacity=50;textOpacity=50;" vertex="1" parent="1">
+            <mxGeometry x="110" y="410" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;opacity=50;endArrow=ERone;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-14" target="4EDi7bQ3v0hCy3BZd2vM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;opacity=50;endArrow=ERone;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-14" target="4EDi7bQ3v0hCy3BZd2vM-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="wait_stats" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-14">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;opacity=50;textOpacity=50;" vertex="1" parent="1">
+            <mxGeometry x="530" y="410" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="4EDi7bQ3v0hCy3BZd2vM-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERzeroToOne;startFill=0;opacity=50;" edge="1" parent="1" source="4EDi7bQ3v0hCy3BZd2vM-18" target="4EDi7bQ3v0hCy3BZd2vM-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="plan_feedback" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-plan-feedback" id="4EDi7bQ3v0hCy3BZd2vM-18">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;opacity=50;textOpacity=50;" vertex="1" parent="1">
+            <mxGeometry x="320" y="150" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="query_context_settings" link="https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-context-settings-transact-sql" id="4EDi7bQ3v0hCy3BZd2vM-21">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=default;" vertex="1" parent="1">
+            <mxGeometry x="110" y="150" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
