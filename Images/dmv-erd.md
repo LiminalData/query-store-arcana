@@ -9,7 +9,7 @@
   * cross-reference so query_text keeps the blob data off of
 * [query][query] `+-|<` [plan][plan]
   * a query must have a plan, but may have many
-* [plan][plan] `+-o`< runtime_stats
+* [plan][plan] `+-o<` runtime_stats
   * runtime_stats must belong to a plan
   * however, a plan may persist after runtime_stats have aged out
 * [runtime_stats][runtime_stats] `>o-+` [runtime_stats_interval][runtime_stats_interval]
